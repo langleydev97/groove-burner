@@ -34,25 +34,28 @@ const getTrackList = (req, res) => {
     });
 };
 
-const addCover = async (req, res) => {
-  try {
-    const { title, email } = req.params;
-    console.log(title, email);
+const addCover = (req, res) => {
+  const { title, email } = req.params;
+  console.log(title, email);
 
-    const info = new GrooveListInfo({
-      title: title,
-      img:
-        "https://res.cloudinary.com/grooveburner/image/upload/v1690770009/kf0pd0a4pg4zsw78re5n.jpg",
-      userEmail: email,
+  const imageUrl = "https://res.cloudinary.com/grooveburner/image/upload/v1690770009/kf0pd0a4pg4zsw78re5n.jpg";
+
+  const info = new GrooveListInfo({
+    title: title,
+    img: imageUrl,
+    userEmail: email,
+  });
+
+  info.save()
+    .then(() => {
+      res.status(200).send({ title, imageUrl }); // Sending back the title and image URL
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send({ error: "An error occurred" });
     });
-
-    await info.save();
-    res.sendStatus(200);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "An error occurred" });
-  }
 };
+
 
 const getTotal = (req, res) => {
   const { email } = req.params;
