@@ -34,7 +34,7 @@ const getTrackList = (req, res) => {
     });
 };
 
-cconst addCover = async (req, res) => {
+const addCover = async (req, res) => {
   try {
     const { title, email } = req.params;
     console.log(title, email);
