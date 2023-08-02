@@ -10,9 +10,12 @@ api.use(bodyParser.urlencoded({ limit: "60mb", extended: true }));
 
 api.use(cors());
 api.use(express.json());
+
 const corsOptions = {
-  origin: "https://64ca9c4e794e380773dbea17--jolly-squirrel-0ea700.netlify.app",
+  origin: ["https://64ca9c4e794e380773dbea17--jolly-squirrel-0ea700.netlify.app", "http://localhost:3000"],
 };
+
+api.use(cors(corsOptions));
 
 api.use(cors(corsOptions));
 
