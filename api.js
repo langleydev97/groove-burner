@@ -11,8 +11,11 @@ api.use(bodyParser.urlencoded({ limit: "60mb", extended: true }));
 api.use(cors());
 api.use(express.json());
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://64ca9c4e794e380773dbea17--jolly-squirrel-0ea700.netlify.app",
 };
+
+api.use(cors(corsOptions));
+
 
 api.use(cors(corsOptions));
 const { seedDB } = require("./Utils/seed");
