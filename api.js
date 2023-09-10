@@ -12,7 +12,7 @@ api.use(cors());
 api.use(express.json());
 
 const corsOptions = {
-  origin: ["https://64ca9c4e794e380773dbea17--jolly-squirrel-0ea700.netlify.app", "http://localhost:3000"],
+  origin: ["https://64ca9c4e794e380773dbea17--jolly-squirrel-0ea700.netlify.app","https://regal-fenglisu-01f48b.netlify.app", "http://localhost:3000"],
 };
 
 api.use(cors(corsOptions));
